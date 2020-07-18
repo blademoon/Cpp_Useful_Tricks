@@ -14,7 +14,7 @@ bool isdigit(const string & test_string) {
     size_t found = test_string.find_first_not_of("-0123456789");
     // Отладка! Если такой символ найден, то возвращяем ложь
     if (found!=std::string::npos) {
-        cout << "The first non-numeric character is " << test_string[found];
+        cout << "The first non-numeric character is " << test_string[found] << " ";
         return false;
     } else {return true;}
 }
@@ -22,6 +22,10 @@ bool isdigit(const string & test_string) {
 
 int main () {
     vector <string> numbers = {"01", "0b","-10","-01","adb"};
+
+    // Передадим в поток модификатор вывода, чтобы видеть логические литералы не как цифры,
+    // а как значения true и false
+    cout << boolalpha;
 
     for (string & value : numbers) {
         cout << "Value " << value << " " << isdigit(value) << endl;
